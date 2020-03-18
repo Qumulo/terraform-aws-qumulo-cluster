@@ -33,3 +33,7 @@ resource "aws_instance" "node" {
   vpc_security_group_ids = var.security_group_ids
   tags                   = merge({ Name = "${var.cluster_name} ${count.index + 1}" }, var.tags)
 }
+
+locals {
+  all_nodes = concat([aws_instance.leader_node], aws_instance.node.*)
+}
