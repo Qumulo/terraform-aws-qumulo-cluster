@@ -31,7 +31,7 @@ resource "aws_instance" "node" {
   key_name               = var.key_pair_name
   subnet_id              = var.subnet_id
   vpc_security_group_ids = var.security_group_ids
-  tags                   = merge({ Name = "${var.cluster_name} ${count.index + 1}" }, var.tags)
+  tags                   = merge({ Name = "${var.cluster_name} ${count.index + 2}" }, var.tags)
 }
 
 locals {
