@@ -11,7 +11,7 @@ This is primarily meant to help in spinning up clusters and provides an alternat
 This module requires the [AWS Provider](https://github.com/terraform-providers/terraform-provider-aws) `>= 2.53`
 
 It also requires the AMI ID of the [Qumulo Cloud Software](https://qumulo.com/product/cloud-products/).
-You can find AMIs for the Qumulo Cloud Software on the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=c35cf4f2-2f03-462f-9548-27863b37e609&searchTerms=Qumulo) =
+You can find AMIs for the Qumulo Cloud Software on the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?page=1&filters=VendorId&VendorId=c35cf4f2-2f03-462f-9548-27863b37e609&searchTerms=Qumulo)
 or by [Contacting Qumulo Sales](http://discover.qumulo.com/cloud-calc-contact.html).
 
 ## Usage
