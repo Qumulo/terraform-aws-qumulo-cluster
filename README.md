@@ -29,7 +29,7 @@ module "qumulo_cluster" {
   node_count        = 4
   key_pair_name     = "admin_ssh_key"
   subnet_id         = "subnet-abcdef"
-  secutiy_group_ids = ["sg-1234567"]
+  security_group_ids = ["sg-1234567"]
   tags              = {
     User = "jdoe"
     Department = "IT"
