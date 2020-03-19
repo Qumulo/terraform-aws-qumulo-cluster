@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Qumulo, Inc. All rights reserved.
+ * Copyright (c) 2020 Qumulo, Inc. All rights reserved.
  *
  * NOTICE: All information and intellectual property contained herein is the
  * confidential property of Qumulo, Inc. Reproduction or dissemination of the
