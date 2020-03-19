@@ -24,7 +24,7 @@ Instead pin to a release tag (e.g. `?ref=tags/x.y.z`).
 module "qumulo_cluster" {
   source            = "git::https://github.com/Qumulo/terraform-aws-qumulo-cluster.git?ref=master"
   ami_id            = "ami-0641894224608b956"  # us-west-2 Qumulo-Cloud-3.0.0.2-release-5tib
-  cluster_name      = "QumuloFileCluster"
+  cluster_name      = "Qumulo"
   instance_type     = "m5.8xlarge"
   node_count        = 4
   key_pair_name     = "admin_ssh_key"
@@ -48,7 +48,7 @@ module.
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | ami_id | The AMI ID for the Qumulo Cloud Software you wish to deploy | string | - | yes |
-| cluster_name | What to name the cluster | string | - | yes |
+| cluster_name | What to name the cluster. Must be 2-15 chars, no spaces. | string | - | yes |
 | instance_type | Desired EC2 Instance Type. | string | m5.8xlarge | no |
 | key_pair_name | EC2 SSH key pair to ssh to the "admin" user | string | - | yes |
 | node_count | Number of Nodes (min: 4, max: 100) | number | 4 | no |
