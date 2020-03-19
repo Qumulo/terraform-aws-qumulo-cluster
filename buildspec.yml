@@ -1,0 +1,49 @@
+# Copyright (c) 2020 Qumulo, Inc. All rights reserved.
+#
+# NOTICE: All information and intellectual property contained herein is the
+# confidential property of Qumulo, Inc. Reproduction or dissemination of the
+# information or intellectual property contained herein is strictly forbidden,
+# unless separate prior written permission has been obtained from Qumulo, Inc.
+---
+version: 0.2
+env:
+  variables:
+    TF_IN_AUTOMATION: "1"
+    TF_DATA_DIR: build/.terraform
+    TF_LOG_PATH: build/terraform.log
+    TERRAFORM: build/bin/terraform
+
+    # These change variables passed to Terraform
+    TF_VAR_ami_id: ami-0641894224608b956 # Qumulo-Cloud-3.0.0.2-release-5tib
+    TF_VAR_cluster_name: GitHubCITerraformTest
+    TF_VAR_instance_type: m5.xlarge # cheapest supported instance type
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - mkdir -p build/tmp build/bin
+      - test -n "$TERRAFORM_ZIP_S3_URL"
+      - aws s3 cp "$TERRAFORM_ZIP_S3_URL" build/tmp/tf.zip
+      - unzip build/tmp/tf.zip -d build/bin
+      - test -f "$TERRAFORM" && test -x "$TERRAFORM"
+  pre_build:
+    commands:
+      # inject provider configuration for testing
+      - printf 'provider "aws" {\n  region = "%b"\n}\n' "$AWS_DEFAULT_REGION" | tee override.tf
+      - $TERRAFORM init -no-color
+      - $TERRAFORM fmt -check -recursive -no-color
+      - $TERRAFORM validate -no-color
+  build:
+    commands:
+      # validate that we can plan
+      - $TERRAFORM plan -refresh=false -input=false -state=build/terraform.tfstate -no-color -out=build/terraform.plan
+      # Store JSON version of plan for posterity.
+      - $TERRAFORM show -json build/terraform.plan > build/terraform.plan.json
+
+artifacts:
+  files:
+    - 'build/.terraform/**/*'
+    - 'build/terraform.*'
+...
+# vim: ft=yaml sw=2 ts=2 sts=2 et:
