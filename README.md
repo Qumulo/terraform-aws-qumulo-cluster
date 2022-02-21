@@ -1,4 +1,7 @@
-[![Qumulo Logo](https://qumulo.com/wp-content/uploads/2019/03/Q-logo-onwhite.png)](http://qumulo.com)
+# THIS REPOSITORY IS DEPRECATED #
+
+* Please use [aws-terraform-cloud-q](https://github.com/Qumulo/aws-terraform-cloud-q) for all new Terraform deployments.
+* This repo will be left as is for previous deployments that reference it.
 
 # terraform-aws-qumulo-cluster ![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiSFdqMnlNRys1OEdDY3I5Y0tKLzdNRUtuZjNEY1NJbWNRSEk0eEdsYzNkc3dRcm1qR3BkaFpacWF2cy9sVjJHZXRpY1dFWS9GdXRZdFJ4K0lkVE1vZTJrPSIsIml2UGFyYW1ldGVyU3BlYyI6InF3TVg2UmY2d2JJYWJjbE4iLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
